@@ -61,10 +61,35 @@
           "day,good": {
             "domain": "default",
             "intent": "greeting"
+          },
+          "bye": {
+            "domain": "default",
+            "intent": "greetings.bye"
+          },
+          "thank,you": {
+            "domain": "default",
+            "intent": "greetings.bye"
+          },
+          "all,is,that": {
+            "domain": "default",
+            "intent": "greetings.bye"
+          },
+          "anyth,dont,els,i,need": {
+            "domain": "default",
+            "intent": "greetings.bye"
+          },
+          "for,help,thank,your": {
+            "domain": "default",
+            "intent": "greetings.bye"
+          },
+          "bye,good": {
+            "domain": "default",
+            "intent": "greetings.bye"
           }
         },
         "intentDict": {
-          "greeting": "default"
+          "greeting": "default",
+          "greetings.bye": "default"
         },
         "useStemDict": true,
         "domains": {
@@ -132,6 +157,53 @@
                   "good",
                   "day"
                 ]
+              },
+              {
+                "intent": "greetings.bye",
+                "tokens": [
+                  "bye"
+                ]
+              },
+              {
+                "intent": "greetings.bye",
+                "tokens": [
+                  "thank",
+                  "you"
+                ]
+              },
+              {
+                "intent": "greetings.bye",
+                "tokens": [
+                  "that",
+                  "is",
+                  "all"
+                ]
+              },
+              {
+                "intent": "greetings.bye",
+                "tokens": [
+                  "i",
+                  "dont",
+                  "need",
+                  "anyth",
+                  "els"
+                ]
+              },
+              {
+                "intent": "greetings.bye",
+                "tokens": [
+                  "thank",
+                  "for",
+                  "your",
+                  "help"
+                ]
+              },
+              {
+                "intent": "greetings.bye",
+                "tokens": [
+                  "good",
+                  "bye"
+                ]
               }
             ],
             "features": {
@@ -139,10 +211,24 @@
               "hi": 1,
               "hey": 1,
               "yo": 1,
-              "good": 3,
+              "good": 4,
               "morn": 1,
               "afternoon": 1,
-              "day": 1
+              "day": 1,
+              "bye": 2,
+              "thank": 2,
+              "you": 1,
+              "that": 1,
+              "is": 1,
+              "all": 1,
+              "i": 1,
+              "dont": 1,
+              "need": 1,
+              "anyth": 1,
+              "els": 1,
+              "for": 1,
+              "your": 1,
+              "help": 1
             },
             "isEditing": false,
             "className": "BrainNLU",
@@ -167,8 +253,8 @@
               "labels": [],
               "network": {
                 "sizes": [
-                  9,
-                  2
+                  23,
+                  3
                 ],
                 "layers": [
                   {
@@ -180,35 +266,105 @@
                     "morn": {},
                     "afternoon": {},
                     "day": {},
+                    "bye": {},
+                    "thank": {},
+                    "you": {},
+                    "that": {},
+                    "is": {},
+                    "all": {},
+                    "i": {},
+                    "dont": {},
+                    "need": {},
+                    "anyth": {},
+                    "els": {},
+                    "for": {},
+                    "your": {},
+                    "help": {},
                     "nonefeature": {}
                   },
                   {
                     "greeting": {
-                      "bias": 7.656562047,
+                      "bias": 6.278522261,
                       "weights": {
-                        "hello": 4.798613548,
-                        "hi": 4.809784412,
-                        "hey": 4.796843529,
-                        "yo": 4.782651901,
-                        "good": 3.624352932,
-                        "morn": 1.210186005,
-                        "afternoon": 1.208548903,
-                        "day": 1.205618143,
-                        "nonefeature": -7.489387989
+                        "hello": 6.161686897,
+                        "hi": 6.173954964,
+                        "hey": 6.151298523,
+                        "yo": 6.126747131,
+                        "good": 2.825880766,
+                        "morn": 3.351314306,
+                        "afternoon": 3.326026201,
+                        "day": 3.28979826,
+                        "bye": -8.975452423,
+                        "thank": -3.631309271,
+                        "you": -2.675468445,
+                        "that": -2.10543251,
+                        "is": -2.10543251,
+                        "all": -2.10543251,
+                        "i": -1.263955355,
+                        "dont": -1.263955355,
+                        "need": -1.263955355,
+                        "anyth": -1.263955355,
+                        "els": -1.263955355,
+                        "for": -0.955841541,
+                        "your": -0.955841541,
+                        "help": -0.955841541,
+                        "nonefeature": -6.029697895
+                      }
+                    },
+                    "greetings.bye": {
+                      "bias": 2.246548393,
+                      "weights": {
+                        "hello": -2.269856215,
+                        "hi": -2.256901979,
+                        "hey": -2.24717021,
+                        "yo": -2.237995625,
+                        "good": -0.241121411,
+                        "morn": -1.987769723,
+                        "afternoon": -1.974143028,
+                        "day": -1.954244852,
+                        "bye": 10.377954483,
+                        "thank": 5.856370449,
+                        "you": 4.387701988,
+                        "that": 3.418517828,
+                        "is": 3.418517828,
+                        "all": 3.418517828,
+                        "i": 2.051834583,
+                        "dont": 2.051834583,
+                        "need": 2.051834583,
+                        "anyth": 2.051834583,
+                        "els": 2.051834583,
+                        "for": 1.468667388,
+                        "your": 1.468667388,
+                        "help": 1.468667388,
+                        "nonefeature": -2.287498236
                       }
                     },
                     "None": {
-                      "bias": 1.617946116,
+                      "bias": 1.277164095,
                       "weights": {
-                        "hello": -1.579517603,
-                        "hi": -1.570122361,
-                        "hey": -1.560217857,
-                        "yo": -1.549741745,
-                        "good": -1.203870535,
-                        "morn": -0.40383327,
-                        "afternoon": -0.401570529,
-                        "day": -0.398466885,
-                        "nonefeature": 10.688444138
+                        "hello": -1.235948205,
+                        "hi": -1.226742387,
+                        "hey": -1.217180729,
+                        "yo": -1.20727694,
+                        "good": -0.95471406,
+                        "morn": -0.312245965,
+                        "afternoon": -0.309851617,
+                        "day": -0.306831002,
+                        "bye": -1.194164038,
+                        "thank": -0.716141999,
+                        "you": -0.534995914,
+                        "that": -0.418652296,
+                        "is": -0.418652296,
+                        "all": -0.418652296,
+                        "i": -0.251638561,
+                        "dont": -0.251638561,
+                        "need": -0.251638561,
+                        "anyth": -0.251638561,
+                        "els": -0.251638561,
+                        "for": -0.181145906,
+                        "your": -0.181145906,
+                        "help": -0.181145906,
+                        "nonefeature": 10.933663368
                       }
                     }
                   }
@@ -258,6 +414,30 @@
       [
         "en",
         "good day"
+      ],
+      [
+        "en",
+        "bye"
+      ],
+      [
+        "en",
+        "thank you"
+      ],
+      [
+        "en",
+        "that is all"
+      ],
+      [
+        "en",
+        "i dont need anything else"
+      ],
+      [
+        "en",
+        "thanks for your help"
+      ],
+      [
+        "en",
+        "good bye"
       ]
     ]
   },
@@ -297,6 +477,20 @@
         },
         {
           "response": "How can I be of service?"
+        }
+      ],
+      "greetings.bye": [
+        {
+          "response": "Thank you for using Documentor!"
+        },
+        {
+          "response": "Have a great day!"
+        },
+        {
+          "response": "Good bye! Thanks again."
+        },
+        {
+          "response": "Happy to help! you have a great day!"
         }
       ]
     }
