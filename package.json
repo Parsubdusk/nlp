@@ -8,7 +8,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hono/node-server": "^1.13.8",
     "express": "^4.21.2",
+    "hono": "^4.7.2",
     "node-nlp": "^3.10.2"
   },
   "description": ""
