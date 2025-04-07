@@ -1,6 +1,6 @@
-const {NlpManager} = require('node-nlp');
-const {serve} = require('@hono/node-server');
-const {Hono} = require('hono');
+const { NlpManager } = require('node-nlp');
+const { Hono } = require('hono');
+const { serve } = require('@hono/node-server');
 const manager = new NlpManager(({languages: ['en']}));
 const app = new Hono();
 // add documents
@@ -49,22 +49,26 @@ manager.addAnswer('en', 'assistance.request', 'Yes I can! First can you give me 
 manager.train().then(async () => {
     await manager.save();
     console.log('NLP Manager trained and saved.')
+    let response = await manager.process('en', 'Can you guide me?');
+    console.log(response);
+    response = await manager.process('en', 'I need help.');
+    console.log(response);
+}).catch(err => {
+    console.error('Error training NLP Manager:', err);
 
 app.post('/bot', async (c) => {
-        const {message} = await c.req.json();
+        const { message } = await c.req.json();
         const response = await manager.process('en', message)
         return
 c.json({ response: response.answer || "I'm sorry, I didn't understand. Can you please explain further." });
 });
 
-    const port = 3000;
+    const port = 3000/bot;
     serve(app, { port })
-        .then(() => {
+        
 console.log('Server is running on http://localhost: ${port}');
-})
-    .catch(err => {
-    console.error('Error starting the server:', err);
 });
-}).catch(err => {
-    console.error('Error training NLP Manager:', err);
-});
+
+    
+
+
